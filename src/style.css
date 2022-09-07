@@ -1,3 +1,21 @@
-h1 {
-  color: aquamarine;
+.weather-app {
+  margin: 50px auto;
+  padding: 5px;
+  font-family: "Quicksand", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  padding: 20px;
+}
+
+h2 {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.col {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
 }
