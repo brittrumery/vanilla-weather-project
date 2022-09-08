@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -24,10 +26,10 @@
       <div class="weather-app">
         <h1>
           <div class="row">
-            <div class="col-4">
+            <div class="col-5">
               <ul>
                 <li>
-                  <span id="weatherLocation">Ellsworth</span>
+                  <span class="weatherLocation">Test City</span>
                 </li>
                 <li>
                   <span id="todayDate"> September 6</span>
@@ -36,7 +38,7 @@
               </ul>
             </div>
 
-            <div class="col-8">
+            <div class="col-7">
               <div class="input-group">
                 <input
                   type="text"
@@ -57,9 +59,9 @@
         </h1>
         <h2>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <img
-                src="icons/cloudy.png"
+                src="src/icons/cloudy.png"
                 alt="Cloudy Day"
                 width="350"
                 style="width: 100%; max-width: 350px"
@@ -68,23 +70,23 @@
             <div class="col-md-5">
               <p class="current-temp">
                 Current:
-                <span class="temperature" id="temperature">Test Temp</span>
-                <a href="#" id="celsius-link">°C</a> |
-                <a href="#" id="fahrenheit-link">°F </a>
+                <span class="temperature">Test Temp</span>
+                <a href="#" id="fahrenheit-link">°F </a> |
+                <a href="#" id="celsius-link">°C</a>
               </p>
               <p class="high-low">
-                High: <span id="mainHigh">78</span>° C <br />
-                Low: <span id="mainLow">58</span> ° C
+                High: <span class="mainHigh">78</span>° F <br />
+                Low: <span class="mainLow">58</span> ° F
               </p>
               <p class="card-text">
-                <small class="small-text">Cloudy</small>
+                <small id="weatherDescription">Cloudy</small>
               </p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <p>
-                Precipitation: 85% <br />
-                Humidity: 100% F <br />
-                Wind: 1mph
+                Feels Like: <span class="feelsLikeTemp">85</span>° C <br />
+                Humidity: <span class="mainHumidity">100</span>%<br />
+                Wind: <span class="mainWind">1</span> mph
               </p>
             </div>
           </div>
@@ -92,7 +94,11 @@
         <h3>
           <div class="row">
             <div class="col">
-              <img src="icons/cloudy.png" class="card-img-top" alt="Cloudy" />
+              <img
+                src="src/icons/partsun.png"
+                class="card-img-top"
+                alt="Cloudy"
+              />
               <div class="card-body">
                 <h5 class="card-title">Friday</h5>
                 <p class="card-text">High: 78° F <br />Low: 58 ° F</p>
@@ -102,7 +108,7 @@
               </div>
             </div>
             <div class="col">
-              <img src="icons/cloudy.png" class="card-img-top" alt="Cloudy" />
+              <img src="src/icons/rain.png" class="card-img-top" alt="Cloudy" />
               <div class="card-body">
                 <h5 class="card-title">Friday</h5>
                 <p class="card-text">High: 78° F <br />Low: 58 ° F</p>
@@ -112,7 +118,11 @@
               </div>
             </div>
             <div class="col">
-              <img src="icons/rain.png" class="card-img-top" alt="Rainy" />
+              <img
+                src="src/icons/sunnywind.png"
+                class="card-img-top"
+                alt="Rainy"
+              />
               <div class="card-body">
                 <h5 class="card-title">Saturday</h5>
                 <p class="card-text">High: 78° F <br />Low: 58 ° F</p>
@@ -122,7 +132,7 @@
               </div>
             </div>
             <div class="col">
-              <img src="icons/sun.png" class="card-img-top" alt="Sunny" />
+              <img src="src/icons/wind.png" class="card-img-top" alt="Sunny" />
               <div class="card-body">
                 <h5 class="card-title">Sunday</h5>
                 <p class="card-text">High: 78° F <br />Low: 58 ° F</p>
@@ -132,7 +142,7 @@
               </div>
             </div>
             <div class="col">
-              <img src="icons/cloudy.png" class="card-img-top" alt="Cloudy" />
+              <img src="src/icons/sun.png" class="card-img-top" alt="Cloudy" />
               <div class="card-body">
                 <h5 class="card-title">Friday</h5>
                 <p class="card-text">High: 78° F <br />Low: 58 ° F</p>
@@ -147,7 +157,6 @@
           <a href="https://github.com/brittrumery" target="_blank"
             >Coded by Britt Rumery</a
           >
-          <script src="index.js"></script>
         </footer>
       </div>
     </div>

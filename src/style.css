@@ -1,21 +1,27 @@
-.weather-app {
-  margin: 50px auto;
-  padding: 5px;
-  font-family: "Quicksand", sans-serif;
-}
-
 h1,
 h2,
 h3 {
-  padding: 20px;
+  padding: 10px;
 }
 
 h2 {
   border: 1px solid black;
   border-radius: 10px;
 }
+
+li {
+  list-style: none;
+}
+.weather-app {
+  margin: 0 auto;
+  padding: 5px;
+  font-family: "Quicksand", sans-serif;
+}
 .col {
   border: 1px solid black;
   border-radius: 10px;
   margin: 5px;
+}
+.container {
+  max-width: 100%;
 }
