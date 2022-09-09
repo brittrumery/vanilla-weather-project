@@ -3,6 +3,9 @@ h2,
 h3 {
   padding: 10px;
 }
+h1 {
+  padding-top: 25px;
+}
 
 h2 {
   border: 1px solid black;
@@ -11,16 +14,36 @@ h2 {
 
 li {
   list-style: none;
+  font-weight: 300;
+}
+#weatherDescription {
+  text-transform: capitalize;
+}
+.todayDate,
+.time {
+  font-size: 25px;
 }
 .weather-app {
   margin: 0 auto;
   padding: 5px;
   font-family: "Quicksand", sans-serif;
 }
+.weatherLocation {
+  font-weight: bold;
+  font-size: 50px;
+}
+
 .col {
   border: 1px solid black;
   border-radius: 10px;
   margin: 5px;
+}
+.col-md-5,
+.col-md-4 {
+  padding-top: 15px;
+}
+.col-7 {
+  padding-top: 50px;
 }
 .container {
   max-width: 100%;

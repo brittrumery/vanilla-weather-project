@@ -29,12 +29,14 @@
             <div class="col-5">
               <ul>
                 <li>
+                  <span class="time"> 6:05 AM</span>
+                </li>
+                <li>
                   <span class="weatherLocation">Test City</span>
                 </li>
                 <li>
-                  <span id="todayDate"> September 6</span>
+                  <strong><span class="todayDate"> September 6</span></strong>
                 </li>
-                <li><span id="time"> 6:05 AM</span></li>
               </ul>
             </div>
 
@@ -62,6 +64,7 @@
             <div class="col-md-3">
               <img
                 src="src/icons/cloudy.png"
+                id="currentWeatherIcon"
                 alt="Cloudy Day"
                 width="350"
                 style="width: 100%; max-width: 350px"
@@ -69,10 +72,12 @@
             </div>
             <div class="col-md-5">
               <p class="current-temp">
-                Current:
-                <span class="temperature">Test Temp</span>
-                <a href="#" id="fahrenheit-link">°F </a> |
-                <a href="#" id="celsius-link">°C</a>
+                <strong>
+                  Current:
+                  <span class="temperature">Test Temp</span>
+                  <a href="#" id="fahrenheit-link">°F </a> |
+                  <a href="#" id="celsius-link">°C</a>
+                </strong>
               </p>
               <p class="high-low">
                 High: <span class="mainHigh">78</span>° F <br />
@@ -83,11 +88,11 @@
               </p>
             </div>
             <div class="col-md-4">
-              <p>
-                Feels Like: <span class="feelsLikeTemp">85</span>° C <br />
-                Humidity: <span class="mainHumidity">100</span>%<br />
-                Wind: <span class="mainWind">1</span> mph
-              </p>
+              <p>Feels Like: <span class="feelsLikeTemp">85</span>° C</p>
+
+              <p>Humidity: <span class="mainHumidity">100</span>%</p>
+
+              <p>Wind: <span class="mainWind">1</span> mph</p>
             </div>
           </div>
         </h2>
