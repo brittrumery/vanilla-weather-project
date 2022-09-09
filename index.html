@@ -41,21 +41,32 @@
             </div>
 
             <div class="col-7">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search a City"
-                />
-                <div class="input-group-append" id="button-addon4">
-                  <button class="btn btn-outline-secondary" type="button">
-                    Search
-                  </button>
-                  <button class="btn btn-outline-secondary" type="button">
-                    Use my Location
-                  </button>
+              <form id="search-form">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search a City"
+                    id="city-input"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="submit"
+                      value="search"
+                    >
+                      Search
+                    </button>
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="useLocation-button"
+                    >
+                      Use my Location
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </h1>

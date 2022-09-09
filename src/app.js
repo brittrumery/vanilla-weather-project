@@ -74,8 +74,19 @@ function displayTemp(response) {
   );
 }
 
-let city = `New York`;
-let apiKey = `258df64cfd55487c8f08030e7b6a407b`;
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function search(city) {
+  let apiKey = `258df64cfd55487c8f08030e7b6a407b`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then(displayTemp);
+}
 
-axios.get(apiURL).then(displayTemp);
+function startSearch(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector(`#city-input`);
+  search(cityInputElement.value);
+}
+
+search(`New York`);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", startSearch);
