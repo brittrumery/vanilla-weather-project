@@ -48,3 +48,11 @@ li {
 .container {
   max-width: 100%;
 }
+
+.current-temp .active {
+  color: black;
+  cursor: default;
+}
+.current-temp .active:hover {
+  text-decoration: none;
+}
