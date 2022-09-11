@@ -157,5 +157,12 @@ celsiusLink.addEventListener("click", convertToCelsius);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
+let buttonUseLocation = document.querySelector("#useLocation-button");
+buttonUseLocation.addEventListener("click", getCurrentPosition);
+
 navigator.geolocation.getCurrentPosition(retrievePosition);
 search(`New York`);
