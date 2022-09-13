@@ -45,6 +45,38 @@ let month = months[now.getMonth()];
 currentdate.innerHTML = `${day}, ${month} ${date},`;
 currenttime.innerHTML = `${hours}:${minutes} ${amOrpm}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  
+            <div class="col">
+              <img
+                src="src/icons/partsun.png"
+                class="card-img-top"
+                alt="Cloudy"
+                id="forecast-image"
+              />
+              <div class="card-body">
+                <h5 class="card-title" id="forecast-date">${day}</h5>
+                <p class="card-text">High: <span class="forecast-high"></span>78</span>° F <br />Low: <span class= "forecast-low">58</span> ° F</p>
+                <p class="card-text">
+                  <small class="small-text" id="forecast-description">Cloudy</small>
+                </p>
+              </div>
+            </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemp(response) {
   console.log(response);
   let tempElement = document.querySelector(`.temperature`);
@@ -166,3 +198,4 @@ buttonUseLocation.addEventListener("click", getCurrentPosition);
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
 search(`New York`);
+displayForecast();

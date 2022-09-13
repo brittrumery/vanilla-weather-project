@@ -56,3 +56,6 @@ li {
 .current-temp .active:hover {
   text-decoration: none;
 }
+.weather-forecast {
+  text-align: center;
+}
