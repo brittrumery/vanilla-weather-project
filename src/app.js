@@ -45,40 +45,65 @@ let month = months[now.getMonth()];
 currentdate.innerHTML = `${day}, ${month} ${date},`;
 currenttime.innerHTML = `${hours}:${minutes} ${amOrpm}`;
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let weekDay = new Date(timestamp * 1000);
+  let day = weekDay.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
   
             <div class="col">
               <img
-                src="src/icons/partsun.png"
+                src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                 class="card-img-top"
-                alt="Cloudy"
+                alt= ""
                 id="forecast-image"
               />
               <div class="card-body">
-                <h5 class="card-title" id="forecast-date">${day}</h5>
-                <p class="card-text">High: <span class="forecast-high"></span>78</span>° F <br />Low: <span class= "forecast-low">58</span> ° F</p>
+                <h5 class="card-title" id="forecast-date">${formatDay(
+                  forecastDay.dt
+                )}</h5>
+                <p class="card-text">High: <span class="forecast-high"></span>${Math.round(
+                  forecastDay.temp.max
+                )}</span>° F <br />Low: <span class= "forecast-low">${Math.round(
+          forecastDay.temp.min
+        )}</span> ° F</p>
                 <p class="card-text">
-                  <small class="small-text" id="forecast-description">Cloudy</small>
+                  <small class="small-text" id="forecast-description">${
+                    forecastDay.weather[0].main
+                  }</small>
                 </p>
               </div>
             </div>
           `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = `3febf6b86d35cc7ae137c4e09c21db07`;
+  let apiURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 function displayTemp(response) {
-  console.log(response);
   let tempElement = document.querySelector(`.temperature`);
   let cityElement = document.querySelector(`.weatherLocation`);
   let mainHighElement = document.querySelector(`.mainHigh`);
@@ -101,16 +126,19 @@ function displayTemp(response) {
   mainWindElement.innerHTML = Math.round(response.data.wind.speed);
   currentWeatherIconElement.setAttribute(
     `src`,
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png
+    `
   );
   currentWeatherIconElement.setAttribute(
     `alt`,
     response.data.weather[0].description
   );
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
-  let apiKey = `258df64cfd55487c8f08030e7b6a407b`;
+  let apiKey = `3febf6b86d35cc7ae137c4e09c21db07`;
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiURL).then(displayTemp);
 }
@@ -171,7 +199,7 @@ function updateLocalWeather(response) {
   );
 }
 function retrievePosition(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "3febf6b86d35cc7ae137c4e09c21db07";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
@@ -198,4 +226,3 @@ buttonUseLocation.addEventListener("click", getCurrentPosition);
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
 search(`New York`);
-displayForecast();
